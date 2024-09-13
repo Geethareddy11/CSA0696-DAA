@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <limits.h>
+#define N 4 // Number of tasks and workers
+// Function prototypes
+void assignmentProblem(int costMatrix[N][N]);
+int branchAndBound(int costMatrix[N][N], int assignment[], int row, int n, 
+int bound, int currCost, int minCost, int visited[]);
+// Helper function to calculate the lower bound for a given node
+int calculateLowerBound(int costMatrix[N][N], int assignment[], int n, int 
+row, int visited[]);
+// Helper function to find the minimum cost assignment
+int findMinCost(int costMatrix[N][N], int assignment[], int n, int 
+currCost, int minCost, int visited[]);
+int main() {
+ int costMatrix[N][N] = {
+ {10, 2, 8, 12},
+ {9, 4, 7, 6},
+ {5, 11, 13, 10},
+ {7, 9, 16, 5}
+ };
+ assignmentProblem(costMatrix);
+ return 0;
+}
